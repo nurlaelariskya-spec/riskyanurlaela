@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Riskyal Nurlaela | SMK Negeri Bojonggambir</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            accent: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styling & Animations */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #06b6d4 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.15), 0 10px 10px -5px rgba(6, 182, 212, 0.1);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- ========================================== -->
+    <!-- BAGIAN DATA SISWA (MUDAH DIEDIT)          -->
+    <!-- ========================================== -->
+    <script>
+        const DATA_SISWA = {
+            namaLengkap: "RISKYA NURLAELA",
+            fotoProfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80", // Placeholder estetis (Link asli FB dapat diganti langsung di sini jika diperlukan format langsung)
+            kelas: "X DKV 1",
+            jurusan: "DESAIN KOMUNIKASI VISUAL",
+            sekolah: "SMKN BOJONGGAMBIR",
+            ttl: "TASIKMALAYA, 30 DESEMBER 2010",
+            alamat: "KAMPUNG CIPAYUNG",
+            email: "nurlaelariskya@gmail.com",
+            whatsapp: "082127270886",
+            socialMedia: "@061010",
+            deskripsiDiri: "Saya Riskyal Nurlaela, seorang siswi perempuan berprinsip kuat, kreatif, dan memiliki semangat tinggi dalam dunia desain visual.",
+            keahlianUtama: ["Desain Logo", "Nirmana Dwi Matra", "Video Velocity", "Ilustrasi Digital", "Adobe Photoshop"],
+            citaCita: "Desainer Profesional & Kreator Digital Terkemuka",
+            proyek: [
+                {
+                    judul: "Desain Logo Produk Kreatif",
+                    kategori: "Brand Identity",
+                    deskripsi: "Pembuatan identitas visual merek produk lokal dengan konsep modern, minimalis, dan penuh filosofi.",
+                    gambar: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80",
+                    tags: ["Logo", "Illustrator", "Branding"]
+                },
+                {
+                    judul: "Seni Nirmana Dwi Matra",
+                    kategori: "Seni Rupa Dasar",
+                    deskripsi: "Eksplorasi komposisi bentuk, ritme, dan warna harmonis dalam tugas dasar perancangan seni rupa DKV.",
+                    gambar: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80",
+                    tags: ["Nirmana", "Komposisi", "Seni Rupa"]
+                },
+                {
+                    judul: "Video Edit & Motion Velocity",
+                    kategori: "Multimedia",
+                    deskripsi: "Kompilasi video kreatif dengan transisi cepat, sinkronisasi ketukan musik yang dinamis dan estetis.",
+                    gambar: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80",
+                    tags: ["CapCut", "Velocity", "Editing"]
+                }
+            ]
+        };
+    </script>
+
+    <!-- ========================================== -->
+    <!-- NAVBAR ELEGAN & RESPONSIF                  -->
+    <!-- ========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#beranda" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl hero-gradient flex items-center justify-center text-white font-heading font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                    RN
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-lg text-slate-900 tracking-wide block leading-tight">RISKYA</span>
+                    <span class="text-xs font-semibold text-brand-600 tracking-wider">PORTFOLIO DKV</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+                <a href="#beranda" class="hover:text-brand-600 transition-colors">Beranda</a>
+                <a href="#tentang" class="hover:text-brand-600 transition-colors">Tentang Saya</a>
+                <a href="#keahlian" class="hover:text-brand-600 transition-colors">Keahlian</a>
+                <a href="#pendidikan" class="hover:text-brand-600 transition-colors">Pendidikan</a>
+                <a href="#portofolio" class="hover:text-brand-600 transition-colors">Portofolio</a>
+                <a href="#citacita" class="hover:text-brand-600 transition-colors">Cita-Cita</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#kontak" class="px-5 py-2.5 rounded-full hero-gradient text-white text-sm font-semibold shadow-lg shadow-brand-500/25 hover:opacity-95 transition-all transform hover:-translate-y-0.5">
+                    Hubungi Saya
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-700 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 shadow-xl">
+            <a href="#beranda" class="block py-2 text-slate-600 font-medium mobile-link">Beranda</a>
+            <a href="#tentang" class="block py-2 text-slate-600 font-medium mobile-link">Tentang Saya</a>
+            <a href="#keahlian" class="block py-2 text-slate-600 font-medium mobile-link">Keahlian</a>
+            <a href="#pendidikan" class="block py-2 text-slate-600 font-medium mobile-link">Pendidikan</a>
+            <a href="#portofolio" class="block py-2 text-slate-600 font-medium mobile-link">Portofolio</a>
+            <a href="#citacita" class="block py-2 text-slate-600 font-medium mobile-link">Cita-Cita</a>
+            <a href="#kontak" class="block py-2 text-brand-600 font-bold mobile-link">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- BAGIAN BERANDA                             -->
+    <!-- ========================================== -->
+    <section id="beranda" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-gradient-to-b from-brand-50/50 via-white to-slate-50">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-xs font-bold tracking-wide uppercase">
+                    <i class="fa-solid fa-sparkles"><span> Halo, Selamat Datang di Portofolio Saya</span></i>
+                </div>
+                <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-tight">
+                    Halo, Saya <span class="text-gradient">RISKYA NURLAELA</span>
+                </h1>
+                <p class="text-lg text-slate-600 max-w-xl mx-auto md:mx-0 leading-relaxed font-normal">
+                    Siswi kreatif kelas <span class="font-semibold text-slate-800">X DKV 1</span> di <span class="font-semibold text-slate-800">SMKN Bojonggambir</span> yang bersemangat mengeksplorasi dunia desain grafis, seni rupa, dan multimedia modern.
+                </p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
+                    <a href="#portofolio" class="px-8 py-4 rounded-2xl hero-gradient text-white font-bold text-sm shadow-xl shadow-brand-500/25 hover:opacity-95 transition-all transform hover:-translate-y-1">
+                        Lihat Karya Saya <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#kontak" class="px-8 py-4 rounded-2xl bg-white border-2 border-slate-200 text-slate-700 font-bold text-sm hover:border-brand-500 hover:text-brand-600 transition-all">
+                        Kontak WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Image Card -->
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 hero-gradient rounded-3xl rotate-6 opacity-20 animate-pulse"></div>
+                    <div class="absolute inset-0 bg-brand-accent rounded-3xl -rotate-6 opacity-15"></div>
+                    <div class="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-white">
+                        <img id="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Riskyal Nurlaela" class="w-full h-full object-cover animate-float">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+                        <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                        <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Aktif & Kreatif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BAGIAN TENTANG SAYA                        -->
+    <!-- ========================================== -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-md">PROFIL PRIBADI</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900">Tentang Saya</h2>
+                <div class="w-16 h-1.5 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm space-y-6">
+                        <h3 class="font-heading font-bold text-xl text-slate-900 flex items-center gap-3">
+                            <i class="fa-solid fa-id-card text-brand-600"></i> Biodata Siswa
+                        </h3>
+                        <ul class="space-y-4 text-sm text-slate-600">
+                            <li class="flex justify-between border-b border-slate-200/60 pb-3">
+                                <span class="font-semibold text-slate-700">Nama Lengkap</span>
+                                <span id="info-nama" class="font-medium text-slate-900 text-right">RISKYA NURLAELA</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-200/60 pb-3">
+                                <span class="font-semibold text-slate-700">Kelas / Jurusan</span>
+                                <span id="info-kelas" class="font-medium text-slate-900 text-right">X DKV 1</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-200/60 pb-3">
+                                <span class="font-semibold text-slate-700">Sekolah</span>
+                                <span id="info-sekolah" class="font-medium text-slate-900 text-right">SMKN BOJONGGAMBIR</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-200/60 pb-3">
+                                <span class="font-semibold text-slate-700">TTL</span>
+                                <span id="info-ttl" class="font-medium text-slate-900 text-right">TASIKMALAYA, 30 DESEMBER 2010</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-200/60 pb-3">
+                                <span class="font-semibold text-slate-700">Alamat</span>
+                                <span id="info-alamat" class="font-medium text-slate-900 text-right">KAMPUNG CIPAYUNG</span>
+                            </li>
+                            <li class="flex justify-between pb-1">
+                                <span class="font-semibold text-slate-700">Media Sosial</span>
+                                <span id="info-socmed" class="font-medium text-brand-600 text-right">@061010</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-500 to-brand-700 text-white shadow-xl space-y-6 relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-extrabold font-heading">
+                            <i class="fa-solid fa-quote-right"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl">Mengenal Lebih Dekat</h3>
+                        <p class="text-white/90 leading-relaxed text-base sm:text-lg">
+                            Saya adalah seorang siswi perempuan berprinsip kuat dan berjiwa kompetitif. Sebagai anak Desain Komunikasi Visual (DKV), saya memiliki ketertarikan mendalam dalam menciptakan karya visual yang estetis, mulai dari perancangan logo produk, nirmana dwi matra, hingga penyuntingan video velocity yang dinamis.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/20">
+                            <div>
+                                <span class="block text-2xl font-extrabold font-heading">10+</span>
+                                <span class="text-xs text-white/80">Proyek Desain</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-extrabold font-heading">100%</span>
+                                <span class="text-xs text-white/80">Dedikasi Seni</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-extrabold font-heading">X DKV</span>
+                                <span class="text-xs text-white/80">Kelas Unggulan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BAGIAN KEAHLIAN                            -->
+    <!-- ========================================== -->
+    <section id="keahlian" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-md">KOMPETENSI & SKILL</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900">Keahlian Utama</h2>
+                <div class="w-16 h-1.5 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skill 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900">Desain Logo</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Merancang identitas merek yang unik, bermakna, dan profesional sesuai prinsip estetika visual modern.
+                    </p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900">Nirmana Dwi Matra</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Eksplorasi bentuk, irama, keseimbangan, dan harmoni bidang dua dimensi dalam seni rupa dasar.
+                    </p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-violet-100 text-violet-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900">Video Velocity</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Penyuntingan video dinamis dengan efek percepatan ritme dan transisi musik yang sinkron serta estetik.
+                    </p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900">Ilustrasi & Software</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Penguasaan aplikasi desain grafis digital dan manipulasi elemen visual untuk berbagai kebutuhan media.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BAGIAN PENDIDIKAN                          -->
+    <!-- ========================================== -->
+    <section id="pendidikan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-md">JEJAK AKADEMIK</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900">Riwayat Pendidikan</h2>
+                <div class="w-16 h-1.5 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="relative border-l-2 border-brand-200 ml-4 sm:ml-6 space-y-12">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative pl-8 sm:pl-10">
+                        <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full hero-gradient text-white flex items-center justify-center text-sm shadow-md">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-3">
+                            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider bg-brand-100 px-3 py-1 rounded-md">2025 - Sekarang</span>
+                            <h3 class="font-heading font-bold text-xl text-slate-900">SMK Negeri Bojonggambir</h3>
+                            <p class="text-sm font-semibold text-slate-700">Jurusan Desain Komunikasi Visual (DKV) - Kelas X</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Aktif mendalami teori dan praktik desain grafis, fotografi, nirmana, videografi, serta pengembangan estetika digital modern.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative pl-8 sm:pl-10">
+                        <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-slate-300 text-slate-700 flex items-center justify-center text-sm shadow-md">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-3">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider bg-slate-200 px-3 py-1 rounded-md">Pendidikan Dasar & Menengah</span>
+                            <h3 class="font-heading font-bold text-xl text-slate-900">Sekolah Menengah Pertama</h3>
+                            <p class="text-sm font-semibold text-slate-700">Tasikmalaya</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Menyelesaikan pendidikan dasar dengan minat tinggi pada bidang seni rupa dan kreativitas visual sebelum melanjutkan kejuruan DKV.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BAGIAN PORTOFOLIO / KARYA                  -->
+    <!-- ========================================== -->
+    <section id="portofolio" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-md">HASIL KARYA SISWA</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900">Portofolio Proyek Desain</h2>
+                <div class="w-16 h-1.5 bg-brand-500 mx-auto rounded-full"></div>
+                <p class="text-slate-600 text-sm">Beberapa karya pilihan yang telah dikerjakan selama masa studi di SMK Negeri Bojonggambir.</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Javascript will inject projects here dynamically from DATA_SISWA -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BAGIAN CITA-CITA                           -->
+    <!-- ========================================== -->
+    <section id="citacita" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="p-10 sm:p-14 rounded-3xl hero-gradient text-white shadow-2xl relative overflow-hidden text-center max-w-4xl mx-auto">
+                <div class="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-white/15 blur-2xl"></div>
+                <div class="relative z-10 space-y-6">
+                    <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md mx-auto flex items-center justify-center text-3xl text-white">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-widest bg-white/20 px-4 py-1.5 rounded-full inline-block">Masa Depan & Tujuan</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl">Cita-Cita & Visi Karier</h2>
+                    <p class="text-white/90 text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+                        "Menjadi seorang <span id="text-citacita" class="font-bold underline decoration-accent underline-offset-4">Desainer Profesional & Kreator Digital Terkemuka</span> yang mampu menghadirkan karya visual inspiratif, solutif, serta berdampak positif bagi masyarakat luas."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BAGIAN KONTAK                              -->
+    <!-- ========================================== -->
+    <section id="kontak" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-md">MARI TERHUBUNG</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900">Kontak & Media Sosial</h2>
+                <div class="w-16 h-1.5 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- WhatsApp -->
+                <a id="contact-wa" href="https://wa.me/6282127270886" target="_blank" class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover text-center space-y-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">WhatsApp</h3>
+                    <p id="info-whatsapp" class="text-slate-600 text-sm font-medium">082127270886</p>
+                </a>
+
+                <!-- Email -->
+                <a id="contact-email" href="mailto:nurlaelariskya@gmail.com" class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover text-center space-y-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl mx-auto group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Email</h3>
+                    <p id="info-email" class="text-slate-600 text-sm font-medium break-all">nurlaelariskya@gmail.com</p>
+                </a>
+
+                <!-- Instagram / Socmed -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover text-center space-y-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mx-auto group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Instagram</h3>
+                    <p id="info-ig" class="text-slate-600 text-sm font-medium">@061010</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="space-y-2">
+                <span id="footer-nama" class="font-heading font-bold text-xl tracking-wide block">RISKYA NURLAELA</span>
+                <p id="footer-sekolah" class="text-slate-400 text-sm">SMK Negeri Bojonggambir - Jurusan Desain Komunikasi Visual</p>
+            </div>
+            <p class="text-slate-500 text-xs">
+                &copy; 2026 Riskyal Nurlaela. Dibuat dengan HTML, CSS, dan JavaScript modern.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT LOGIC                           -->
+    <!-- ========================================== -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Populate Data from DATA_SISWA object automatically
+        document.addEventListener('DOMContentLoaded', () => {
+            // Profile & Bio Info
+            document.getElementById('profile-img').src = DATA_SISWA.fotoProfil;
+            document.getElementById('info-nama').innerText = DATA_SISWA.namaLengkap;
+            document.getElementById('info-kelas').innerText = DATA_SISWA.kelas + ' - ' + DATA_SISWA.jurusan;
+            document.getElementById('info-sekolah').innerText = DATA_SISWA.sekolah;
+            document.getElementById('info-ttl').innerText = DATA_SISWA.ttl;
+            document.getElementById('info-alamat').innerText = DATA_SISWA.alamat;
+            document.getElementById('info-socmed').innerText = DATA_SISWA.socialMedia;
+
+            // Contact Info
+            document.getElementById('info-whatsapp').innerText = DATA_SISWA.whatsapp;
+            document.getElementById('info-email').innerText = DATA_SISWA.email;
+            document.getElementById('info-ig').innerText = DATA_SISWA.socialMedia;
+            document.getElementById('contact-wa').href = `https://wa.me/62${DATA_SISWA.whatsapp.replace(/^0/, '')}`;
+            document.getElementById('contact-email').href = `mailto:${DATA_SISWA.email}`;
+
+            // Cita-cita
+            document.getElementById('text-citacita').innerText = DATA_SISWA.citaCita;
+
+            // Footer
+            document.getElementById('footer-nama').innerText = DATA_SISWA.namaLengkap;
+            document.getElementById('footer-sekolah').innerText = `${DATA_SISWA.sekolah} - Jurusan ${DATA_SISWA.jurusan}`;
+
+            // Render Portfolio Projects
+            const portfolioContainer = document.getElementById('portfolio-container');
+            portfolioContainer.innerHTML = '';
+
+            DATA_SISWA.proyek.forEach(item => {
+                const tagsHtml = item.tags.map(tag => `<span class="px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold">${tag}</span>`).join('');
+                
+                const card = `
+                    <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm card-hover flex flex-col">
+                        <div class="relative h-52 overflow-hidden bg-slate-100">
+                            <img src="${item.gambar}" alt="${item.judul}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full">${item.kategori}</span>
+                        </div>
+                        <div class="p-6 sm:p-8 flex flex-col flex-grow space-y-4">
+                            <h3 class="font-heading font-bold text-xl text-slate-900">${item.judul}</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed flex-grow">${item.deskripsi}</p>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
+                                ${tagsHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                portfolioContainer.innerHTML += card;
+            });
+        });
+    </script>
+</body>
+                      </html>
